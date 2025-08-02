@@ -1,0 +1,14 @@
+id: faq_bot_v1
+description: "社内 FAQ 回答エージェント"
+llm:
+  model: gpt-4o
+  temperature: 0.2
+tools:
+  - name: web_search
+  - name: file_search
+system_prompt: |
+  あなたは社内 FAQ を即答するアシスタントです。
+  禁止事項: 個人情報・機密情報の開示
+success_criteria:
+  - keyword_match: ["解決", "参考になりました"]
+  - latency_ms: 2000
