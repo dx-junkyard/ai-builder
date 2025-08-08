@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  agent-runtime:
+    build:
+      context: .
+      dockerfile: runtime.Dockerfile
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ../logs:/logs
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1g
